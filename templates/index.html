@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Assignment: Login and Registration w / DB 2018 10 11 Cheung A</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="well well-lg">       
+                    <h2>Login and Registration</h2>
+                    <form action="/register" method='post'>
+                        <table class="table table-striped">
+                            <tbody>
+                                <tr>
+                                    <td>First Name:</td>
+                                    <td>
+                                        <input type="text" name="q0" placeholder="First Name">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Last Name:</td>
+                                    <td>
+                                        <input type="text" name="q1" placeholder="Last Name">
+                                    </td>
+                                </tr>                                                                  
+                                <tr >
+                                    <td>Email:</td>
+                                    <td>
+                                        <input type="text" name="q2" placeholder="Email@email.com">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Password:</td>
+                                    <td>
+                                        <input type="password" name="q3" placeholder="Password">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Confirm Password:</td>
+                                    <td>
+                                        <input type="password" name="q4" placeholder="Confirm Password">
+                                    </td>
+                                </tr>                                
+                            </tbody>
+                        </table>
+                        <button class="btn btn-primary btn-lg btn-block" type="submit">Submit</button>
+                    </form>
+                    {% with messages = get_flashed_messages(with_categories=true) %}
+                        {% if messages %}
+                            <ul class=flashes>
+                                {% for category, messages in messages %}
+                                    <li class=>{{messages}}</li>
+                                {% endfor %}
+                            </ul>   
+                        {% endif %}
+                    {% endwith %}
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="well well-lg">       
+                    <h2>Login here!</h2>
+                    <form action="/login" method='post'>
+                        <table class="table table-striped">
+                            <tbody>                                                               
+                                <tr >
+                                    <td>Email:</td>
+                                    <td>
+                                        <input type="text" name="q5" placeholder="Email@email.com">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Password:</td>
+                                    <td>
+                                        <input type="password" name="q6" placeholder="Password">
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <button class="btn btn-info btn-lg btn-block" type="submit">Submit</button>
+                    </form>
+                    {% with messages = get_flashed_messages(with_categories=true) %}
+                        {% if messages %}
+                            <ul class=flashes>
+                                {% for category, messages in messages %}
+                                    <li class="{{category}}">{{messages}}</li>
+                                {% endfor %}
+                            </ul>   
+                        {% endif %}
+                    {% endwith %}
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
